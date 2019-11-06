@@ -239,7 +239,7 @@ class Keyboard {
 
   init() {
     this._getNextLocale = localeGetter(['en', 'ru']);
-    this.properties.locale = this._getNextLocale()
+    this.properties.locale = this._getNextLocale();
     // Create main elements
     this.elements.input = document.createElement('textarea');
     this.elements.main = document.createElement('div');
@@ -269,7 +269,7 @@ class Keyboard {
     this._initKeyboardEventListeners();
   }
 
-  _getNextLocale(){}
+  _getNextLocale() {}
 
   _initKeyboardEventListeners() {
     window.addEventListener('keydown', (event) => {
@@ -308,7 +308,6 @@ class Keyboard {
     keyLayout.forEach((key) => {
       const keyElement = document.createElement('button');
       const keyValue = (typeof key.value) === 'object' ? key.value[this.properties.locale] : key.value;
-      console.log(key, keyValue, typeof key, this.properties.locale);
 
       const insertLineBreak = ['backspace', 'ъ', 'enter', '/'].indexOf(keyValue) !== -1;
 
@@ -434,9 +433,9 @@ class Keyboard {
     this.eventHandlers.oninput = oninput;
     this.eventHandlers.onclose = onclose;
   }
-};
+}
 
 window.addEventListener('DOMContentLoaded', () => {
   const virtualKeyboard = new Keyboard();
-  virtualKeyboard.init()
+  virtualKeyboard.init();
 });
